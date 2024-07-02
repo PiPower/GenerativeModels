@@ -50,7 +50,7 @@ class VeSDE(tf.keras.layers.Layer):
     def prior_sampling(self, shape):
         epsilon = tf.random.normal(shape)
         mean, stddev = self.distribution_params(tf.zeros(shape), 1)
-        return mean * epsilon * stddev
+        return mean + epsilon * stddev
 
 
 class VpSDE(tf.keras.layers.Layer):
