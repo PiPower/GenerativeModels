@@ -5,7 +5,10 @@ import numpy as np
 import time
 import tensorflow_probability as tfp
 import matplotlib.pyplot as plt
-
+"""
+based on 
+https://www.tensorflow.org/tutorials/generative/cvae?hl=pl
+"""
 def preprocess_images(images):
     images = images.reshape((images.shape[0], 28, 28, 1)) / 255
     return np.where(images > .5, 1.0, 0.0).astype('float32')
