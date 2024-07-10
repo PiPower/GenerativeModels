@@ -8,7 +8,10 @@ import tensorflow_probability as tfp
 from tensorflow import keras
 from tensorflow.keras import layers
 
-
+"""
+based on
+https://keras.io/examples/generative/vq_vae/
+""" 
 def process_path(file_path, x_res=80, y_res=80):
     img = tf.io.read_file(file_path)
     img = tf.image.decode_jpeg(img, channels=3)
