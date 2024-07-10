@@ -4,7 +4,10 @@ import tensorflow as tf
 
 from tensorflow import keras
 from keras import layers
-
+"""
+based on
+https://keras.io/examples/generative/ddim/
+"""
 def ResidualBlock(width):
     def apply(x):
         input_width = x.shape[3]
