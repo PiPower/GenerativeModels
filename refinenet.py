@@ -1,3 +1,6 @@
+"""
+Based on 3rd party code
+"""
 import tensorflow as tf
 import tensorflow.keras as keras
 import tensorflow.keras.layers as layers
