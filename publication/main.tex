@@ -207,11 +207,11 @@ Everything works fine for $\theta$, now we will check differentiability with res
     \nabla_{\phi} \mathbb{E}_{q_{\phi }(\textbf{z}|\textbf{x})}
     \left[ \log p_{\theta }(\textbf{z}, \textbf{x})  - \log q_{\phi }(\textbf{z}|\textbf{x}) \right] \\
     = \nabla_{\phi} \int \left[ \log p_{\theta }(\textbf{z}, \textbf{x})  - \log q_{\phi }(\textbf{z}|\textbf{x}) \right]  q_{\phi }(\textbf{z}|\textbf{x}) dz \\
-    =\int \nabla_{\phi} -\log q_{\phi }(\textbf{z}|\textbf{x})  q_{\phi }(\textbf{z}|\textbf{x}) dz \\
+    =\int \nabla_{\phi}[ \log p_{\theta }(\textbf{z}, \textbf{x})q_{\phi }(\textbf{z}|\textbf{x})  -\log q_{\phi }(\textbf{z}|\textbf{x})  q_{\phi }(\textbf{z}|\textbf{x})] dz \\
      \neq  \mathbb{E}_{q_{\phi }(\textbf{z}|\textbf{x})}  
      \left[ \nabla_{\phi} -\log q_{\phi }(\textbf{z}|\textbf{x}) \right].
 \end{gather}
-Above inequality occurs because of product rule which in general prevents us from assuming that result of $\nabla_{\phi} -\log q_{\phi }(\textbf{z}|\textbf{x})  q_{\phi }(\textbf{z}|\textbf{x})$ will be equal to  $q_{\phi }(\textbf{z}|\textbf{x}) \big[ \nabla_{\phi} -\log q_{\phi }(\textbf{z}|\textbf{x}) \big] $. This result prevents us from using stochastic gradient descent which means we cannot train neural network. The solution to this problem is reparametrization trick.
+Above inequality occurs because of product rule which in general prevents us from assuming that result of $\nabla_{\phi}[ \log p_{\theta }(\textbf{z}, \textbf{x})q_{\phi }(\textbf{z}|\textbf{x})  -\log q_{\phi }(\textbf{z}|\textbf{x})  q_{\phi }(\textbf{z}|\textbf{x})]$ will be equal to  $q_{\phi }(\textbf{z}|\textbf{x}) \big[ \nabla_{\phi} -\log q_{\phi }(\textbf{z}|\textbf{x}) \big] $. This result prevents us from using stochastic gradient descent which means we cannot train neural network. The solution to this problem is reparametrization trick.
 \subsection{Reparametrization trick}
 Suppose $\textbf{z} \sim q_{\phi }(\textbf{z}|\textbf{x})$ is continuous random vector that can be expressed as 
 \begin{equation} \label{eq:z_form}
